@@ -16,7 +16,7 @@ else
 fi
 TOTAL=$(( TOTAL + 10 ))
 
-if ssh server2 test -f /home/chisha/.config/systemd/user/default.target.wants/*timer &>/dev/null
+if ssh server2 test -f /home/chisha/.config/systemd/user/timers.target.wants/*timer &>/dev/null
 then
 	echo -e "\033[32m[OK]\033[0m\t\t the timer service is enabled for the user"
 	SCORE=$(( SCORE + 10 ))
