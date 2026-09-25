@@ -1,4 +1,5 @@
-if ssh server2 test -f /home/chisha/.config/systemd/user/*timer &>/dev/null
+#test -f fails (binary operator expected), a simple ls proves the presence of the file or multiple files
+if ssh server2 ls /home/chisha/.config/systemd/user/*timer &>/dev/null
 then
 	echo -e "\033[32m[OK]\033[0m\t\t a systemd timer file was found in the user homedirectory"
 	SCORE=$(( SCORE + 10 ))
@@ -16,7 +17,8 @@ else
 fi
 TOTAL=$(( TOTAL + 10 ))
 
-if ssh server2 test -f /home/chisha/.config/systemd/user/timers.target.wants/*timer &>/dev/null
+#test -f fails (binary operator expected), a simple ls proves the presence of the file or multiple files
+if ssh server2 ls /home/chisha/.config/systemd/user/timers.target.wants/*timer &>/dev/null
 then
 	echo -e "\033[32m[OK]\033[0m\t\t the timer service is enabled for the user"
 	SCORE=$(( SCORE + 10 ))
