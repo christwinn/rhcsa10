@@ -7,8 +7,8 @@ else
 	echo -e "\033[31m[FAIL]\033[0m\t\t a systemd timer file was not found in the user homedirectory"
 fi
 TOTAL=$(( TOTAL + 10 ))
-
-if ssh server2 grep 'OnCalendar.*Mon.*02' /home/chisha/.config/systemd/user/*timer &>/dev/null
+#could have put Mon,Tue,Wed,Thu,Fri or Mon..Fri time is meant to be 2am on the dot.
+if ssh server2 grep 'OnCalendar.*Mon.*Fri.*02:0' /home/chisha/.config/systemd/user/*timer &>/dev/null
 then
 	echo -e "\033[32m[OK]\033[0m\t\t the timer is scheduled for the correct time"
 	SCORE=$(( SCORE + 10 ))
